@@ -125,6 +125,14 @@ RUN cd /usr/local/bin && \
 # Choose a default Drush Version
 RUN ln -s /usr/local/bin/drush8 /usr/local/bin/drush
 
+#install drupal console
+
+RUN curl https://drupalconsole.com/installer -L -o drupal.phar
+RUN mv drupal.phar /usr/local/bin/drupal
+RUN chmod +x /usr/local/bin/drupal
+RUN drupal init # fill form
+
+
 # Get wordpress cli
 #RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 #chmod +x wp-cli.phar && \

@@ -38,10 +38,10 @@ run to stop docker and remove files to create at installed docker.
 
 ## config .env file 
 
-copy .env.example file to .env file and fill the variable 
+copy .env.example file to .env file and fill the variable.
 
-PASSWORD= use to password the DB
+PASSWORD= use to password the DB.
 
-WEB_PORT_EXTERNAL= the port is to get site from computer (like: localhost:3000)
+WEB_PORT_EXTERNAL= the port is to get site from computer (like: localhost:3000).
 
 PHPMYADMIN_PORT_EXTERNAL= the port is to get phpMyAdmin from computer (like: localhost:9000).
