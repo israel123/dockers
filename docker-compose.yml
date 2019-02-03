@@ -1,0 +1,50 @@
+version: '3'
+services:
+  web:
+    container_name: "${PROJECT_NAME}-web"
+    build: utils/docker/images/nginx/
+    ports:
+      - "${WEB_PORT_EXTERNAL}:9080"
+    volumes:
+      - "./src:/var/www/html"
+  php:
+    container_name: "${PROJECT_NAME}-php"
+    build: utils/docker/images/phpfpm/
+    volumes:
+      - "./src:/var/www/html"
+  db:
+    container_name: "${PROJECT_NAME}-mysql"
+    image: "mysql:5.5"
+    volumes:
+     - "./data/mysql:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PASSWORD}
+      MYSQL_DATABASE: hotelbeds
+      restart: always
+  phpmyadmin:
+    container_name: "${PROJECT_NAME}-pma"
+    image: phpmyadmin/phpmyadmin
+    ports:
+     - "${PHPMYADMIN_PORT_EXTERNAL}:80"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PASSWORD}
+  node:
+    container_name: "${PROJECT_NAME}-nodejs"
+    image: "node:10.15.0-alpine"
+    ports:
+      - 3000:3000
+    volumes:
+      - "./src/:/usr/src/app/"
+    command: "npm start"
+    working_dir: "/usr/src/app/"
+    network_mode: bridge
+  elasticsearch:
+    container_name: "${PROJECT_NAME}-elasticsearch"
+    image: "elasticsearch:5-alpine"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - "./config/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml"
+    environment:
+      - "discovery.type=single-node"
