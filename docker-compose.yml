@@ -1,10 +1,20 @@
 version: '3'
 services:
   web:
-    container_name: "${PROJECT_NAME}-web"
+    container_name: "${PROJECT_NAME}-web-apache"
+    build:
+      context: ./Docker-images/apache/
+    volumes:
+      - "./src:/var/www/html"
+    ports:
+      - "${WEB_PORT_EXTERNAL}:80"
+    environment:
+      XDEBUG_CONFIG: idekey=PHPSTORM remote_host=172.17.0.1 remote_port=9000
+  web-nginx:
+    container_name: "${PROJECT_NAME}-web-nginx"
     build: utils/docker/images/nginx/
     ports:
-      - "${WEB_PORT_EXTERNAL}:9080"
+      - "${WEB_PORT_EXTERNAL}:8080"
     volumes:
       - "./src:/var/www/html"
   php:

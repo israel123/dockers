@@ -8,7 +8,7 @@ RUN touch /var/run/nginx.pid && \
   chown -R www-data:www-data /var/run/nginx.pid && \
   chown -R www-data:www-data /var/cache/nginx
 
-EXPOSE 9080
+EXPOSE 8080
 
 #RUN mkdir /var/www/
 #RUN echo "<?php phpinfo() ?>" > /var/www/index.php

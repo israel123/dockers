@@ -77,6 +77,11 @@ RUN cd /usr/local/bin && \
 # Choose a default Drush Version
 RUN ln -s /usr/local/bin/drush8 /usr/local/bin/drush
 
+RUN curl https://drupalconsole.com/installer -L -o drupal.phar
+RUN mv drupal.phar /usr/local/bin/drupal
+RUN chmod +x /usr/local/bin/drupal
+RUN drupal init # fill form
+
 RUN   chown -R www-data:www-data /var/www/html && \
       chown -R www-data:www-data /var/www/html
 
