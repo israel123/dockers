@@ -8,40 +8,38 @@ look like this ```git add submodule <repo> src```
 docker compose is contain many dockers you need  to comment any docker to don't 
 need the environment specific
 
-## Let's go
-
-have a 6 options to deployment docker.
+Docker commands:
 
 ### ./run.sh install
 
-run first time, it's to  create the files and pull Docaker images.
+run this command only for the first time. It creates the files and pulls the Docker images.
 
 ### ./run.sh build
 
-run if change the docker's file. this is build them.
+run this command to change the docker's files. It re-builds them.
 
 ### ./run.sh start
 
-run if docker is stopped.
+run this command if the docker stopped.
 
 ### ./run.sh stop
 
-run to stop doocker.
+run this command to stop the docker.
 
 ### ./run.sh unbuild 
 
-run to stop docker and down them.
+run this command to stop the docker and shut it down.
 
 ### ./run.sh uninstall
 
-run to stop docker and remove files to create at installed docker.
+run this command to stop the docker and to remove all the files which were created during the installation.
 
 ## config .env file 
 
-copy .env.example file to .env file and fill the variable.
+copy .env.example file to .env file and add the missing variables. 
 
-PASSWORD= use to password the DB.
+PASSWORD= use to password the DB
 
-WEB_PORT_EXTERNAL= the port is to get site from computer (like: localhost:3000).
+WEB_PORT_EXTERNAL= the port number of the local site (like: localhost:3000)
 
-PHPMYADMIN_PORT_EXTERNAL= the port is to get phpMyAdmin from computer (like: localhost:9000).
+PHPMYADMIN_PORT_EXTERNAL= the port number of the phpMyAdmin (like: localhost:9000).
