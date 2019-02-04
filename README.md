@@ -3,7 +3,7 @@
 ### pre-requirement
 
 you need to download any library (like drupal) as submodule to ```src``` the clone it will 
-look like this ```git clone <repo> src```
+look like this ```git add submodule <repo> src```
 
 docker compose is contain many dockers you need  to comment any docker to don't 
 need the environment specific
