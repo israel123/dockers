@@ -3,7 +3,7 @@ services:
   web:
     container_name: "${PROJECT_NAME}-web-apache"
     build:
-      context: ./Docker-images/apache/
+      context: ./utils/docker/images/apache/
     volumes:
       - "./src:/var/www/html"
     ports:
